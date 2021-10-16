@@ -1,0 +1,28 @@
+@import '../../App.module.scss';
+
+.sideNav {
+  width: 15rem;
+  height: 100vh;
+
+  color: white;
+  background-color: $black;
+  box-shadow: 1px 0px 6px 2px rgba(59, 59, 69, 0.8);
+}
+
+.sideNavContainer {
+  padding: 0.5rem 1rem;
+}
+
+.sideNavTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: $Sorted;
+}
+
+.sideNavList ul li {
+    color: white !important;
+}
+
+.icon li {
+    color: white !important;
+  }
