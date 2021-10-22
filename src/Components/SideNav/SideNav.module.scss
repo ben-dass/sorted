@@ -38,7 +38,7 @@
 
   .listItem {
     margin: 0.2rem;
-    
+
     padding-left: 1rem;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
@@ -57,6 +57,7 @@
 }
 
 .add {
+  opacity: 0;
   display: flex;
   justify-content: center;
 
@@ -70,15 +71,20 @@
   .icon {
     font-size: 1em;
     padding-top: 0.1rem;
-  }  
+  }
 
-  transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out, opacity 100ms ease-in-out 200ms;
 }
 
-.add:hover {
-  color: white;
-  background-color: $hover-black;
+.sideNav:hover {
+  .add {
+    opacity: 1;
+  }
 
-  transition: 300ms ease-in-out;
+  .add:hover {
+    color: white;
+    background-color: $hover-black;
+
+    transition: 300ms ease-in-out;
+  }
 }
-
