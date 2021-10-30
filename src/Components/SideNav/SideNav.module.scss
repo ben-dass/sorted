@@ -14,13 +14,26 @@
   padding: 0.2rem 0.4rem;
 }
 
-.sideNavTitle {
+.appTitleContainer {
   text-align: center;
-  font-size: 2rem;
-  font-family: $Sorted;
+
+  .appTitle {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: $Sorted;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: 300ms ease-in-out;
+  }
+
+  a:hover {
+    color: $hover-text;
+    transition: 300ms ease-in-out;
+  }
 }
 
-.sideNavListTitle {
+.listTitle {
   margin-top: 1rem;
   margin-left: 1rem;
   margin-bottom: -0.5rem;
@@ -50,14 +63,14 @@
     cursor: pointer;
     transition: 300ms ease-in-out;
   }
-}
 
-a:hover {
-  background-color: $hover-black;
-  color: $white;
+  a:hover {
+    background-color: $hover-black;
+    color: $white;
 
-  border-radius: 5px;
-  transition: 300ms ease-in-out;
+    border-radius: 5px;
+    transition: 300ms ease-in-out;
+  }
 }
 
 .add {

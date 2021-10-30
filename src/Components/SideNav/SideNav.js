@@ -13,10 +13,12 @@ const SideNav = () => {
     <div className={classes.sideNav}>
       <div className={classes.sideNavContainer}>
         {/* Site title */}
-        <div className={classes.sideNavTitle}>Sorted</div>
+        <div className={classes.appTitleContainer}>
+          <NavLink to="/" activeClassName={classes.appTitle}>Sorted</NavLink>
+        </div>
 
         {/* Categories */}
-        <div className={classes.sideNavListTitle}>categories</div>
+        <div className={classes.listTitle}>categories</div>
 
         {/* List of categories */}
         <div className={classes.list}>
