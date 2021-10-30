@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
 
 // Colors
 $white: white;
@@ -7,7 +8,10 @@ $gray: gray;
 $black: #3b3b45;
 
 $hover-text: #f6eea4;
-$hover-black: #4e4e57;
+$hover-black: #6f6f76;
+
+$selected-black: #4e4e57;
 
 // Fonts
-$Sorted: "Ephesis", cursive;
+$font_ephesis: "Ephesis", cursive;
+$font_zen: "Zen Kurenaido", sans-serif;

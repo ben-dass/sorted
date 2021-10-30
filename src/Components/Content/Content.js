@@ -7,8 +7,10 @@ const Content = (props) => {
 
   return (
     <div className={classes.contentContainer}>
-      Hello world
-      <p>{category}</p>
+      <div className={classes.titleBar}>
+        <div className={classes.title}>{category}</div>
+      </div>
+      <div className={classes.content}></div>
     </div>
   );
 };

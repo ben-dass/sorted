@@ -26,7 +26,7 @@ const SideNav = () => {
             <NavLink
               key={Math.ceil(Math.random() * 1000)}
               to={`/${category.name}`}
-              activeClassName={classes.listItem}
+              activeClassName={classes.active}
             >
               {category.name}
             </NavLink>

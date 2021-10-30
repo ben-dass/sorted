@@ -1,3 +1,29 @@
+@import "../../App.module.scss";
+
 .contentContainer {
-    margin-left: 13rem;
+  margin-left: 14em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.titleBar {
+  height: 3.6rem;
+  display: flex;
+  margin-left: -0.7rem;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(1px);
+}
+
+.title {
+  font-family: $font_zen;
+  font-size: 1.8em;
+  z-index: 1;
+  margin-left: 0.7rem;
+}
+
+.content {
 }
