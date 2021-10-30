@@ -1,15 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useCategories } from "../../Contexts/CategoriesContext";
 
+import { AiOutlinePlus } from "react-icons/ai";
 import classes from "./SideNav.module.scss";
 import { AiOutlinePlus } from "react-icons/ai";
 
 const SideNav = () => {
-  // TODO: Add connection to Firebase. Collection of Categories, ...
-  // TODO: ... each account will always start with a 'General' ...
-  // TODO: ... category. There will be 2 collections: 'categories' and ...
-  // TODO: ... 'images'. Each Image will have an additional property ...
-  // TODO: ... array of strings 'tags', of its associated tags.
+  const categoriesContext = useCategories();
+  const categories = categoriesContext.categories;
 
   return (
     <div className={classes.sideNav}>
@@ -22,15 +21,13 @@ const SideNav = () => {
 
         {/* List of categories */}
         <div className={classes.list}>
-          <NavLink to="/General" activeClassName={classes.listItem}>
-            General
-          </NavLink>
-          <NavLink to="/Wallpapers" activeClassName={classes.listItem}>
-            Wallpapers
-          </NavLink>
-          <NavLink to="/Trips" activeClassName={classes.listItem}>
-            Trips
-          </NavLink>
+        {categories.map((category) => (
+              <NavLink to={`/${category.name}`} activeClassName={classes.listItem}>
+                {category.name}
+              </NavLink>
+            ))}
+
+
         </div>
 
         {/* Add a category */}

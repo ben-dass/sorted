@@ -1,10 +1,11 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import SortedBody from "./Pages/SortedBody";
+import { CategoriesProvider } from "./Contexts/CategoriesContext";
+import SortedBody from "./Pages/SortedBody/SortedBody";
 
 function App() {
   return (
-    <>
+    <CategoriesProvider>
       <Switch>
         <Route
           path={["/General"]}
@@ -19,8 +20,9 @@ function App() {
           render={(props) => <SortedBody {...props} category="trips" />}
         />
       </Switch>
-    </>
-  );
+      </CategoriesProvider>
+      )
+
 }
 
 export default App;
