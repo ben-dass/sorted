@@ -4,7 +4,6 @@ import { useCategories } from "../../Contexts/CategoriesContext";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import classes from "./SideNav.module.scss";
-import { AiOutlinePlus } from "react-icons/ai";
 
 const SideNav = () => {
   const categoriesContext = useCategories();
@@ -21,13 +20,15 @@ const SideNav = () => {
 
         {/* List of categories */}
         <div className={classes.list}>
-        {categories.map((category) => (
-              <NavLink to={`/${category.name}`} activeClassName={classes.listItem}>
-                {category.name}
-              </NavLink>
-            ))}
-
-
+          {categories.map((category) => (
+            <NavLink
+              key={Math.ceil(Math.random() * 1000)}
+              to={`/${category.name}`}
+              activeClassName={classes.listItem}
+            >
+              {category.name}
+            </NavLink>
+          ))}
         </div>
 
         {/* Add a category */}

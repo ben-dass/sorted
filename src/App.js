@@ -1,28 +1,33 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { CategoriesProvider } from "./Contexts/CategoriesContext";
-import SortedBody from "./Pages/SortedBody/SortedBody";
+import SideNav from "./Components/SideNav/SideNav";
+
+import { useCategories } from "./Contexts/CategoriesContext";
+import Content from "./Components/Content/Content";
 
 function App() {
+  const categoriesContext = useCategories();
+  const categories = categoriesContext.categories;
+
   return (
-    <CategoriesProvider>
+    <>
+      <SideNav />
       <Switch>
         <Route
-          path={["/General"]}
-          render={(props) => <SortedBody {...props} category="general" />}
+          path={["/"]}
+          exact
+          render={(props) => <Content {...props} category="" />}
         />
-        <Route
-          path={["/Wallpapers"]}
-          render={(props) => <SortedBody {...props} category="wallpapers" />}
-        />
-        <Route
-          path={["/Trips"]}
-          render={(props) => <SortedBody {...props} category="trips" />}
-        />
+        {categories.map((category) => (
+          <Route
+            key={Math.ceil(Math.random() * 1000)}
+            path={`/${category.name}`}
+            render={(props) => <Content {...props} category={category.name} />}
+          />
+        ))}
       </Switch>
-      </CategoriesProvider>
-      )
-
+    </>
+  );
 }
 
 export default App;

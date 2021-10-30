@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore"; 
 import { db } from "../firebase";
 
@@ -9,20 +9,22 @@ export const useCategories = () => {
 };
 
 export const CategoriesProvider = ({ children }) => {
-  const categories = [];
+  const [categories, setCategories] = useState([]);
 
   /**
    * Get all categories data off Firebase.
    */
   const getCategoriesCollection = async () => {
+    const tempCategories = [];
     const snapshot = await getDocs(collection(db, "Categories"));
 
     snapshot.forEach((doc) => {
-      categories.push({
+      tempCategories.push({
         name: doc.data().name,
       });
     });
 
+    setCategories(tempCategories);
     console.log("Fetched categories");
   };
 
