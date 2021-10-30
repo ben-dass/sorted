@@ -1,7 +1,8 @@
 import React from "react";
-import { AiOutlinePlus } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 import classes from "./SideNav.module.scss";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const SideNav = () => {
   // TODO: Add connection to Firebase. Collection of Categories, ...
@@ -17,15 +18,19 @@ const SideNav = () => {
         <div className={classes.sideNavTitle}>Sorted</div>
 
         {/* Categories */}
-        <div className={classes.sideNavList}>
-          <div className={classes.sideNavListTitle}>categories</div>
+        <div className={classes.sideNavListTitle}>categories</div>
 
-          {/* List of categories */}
-          <ul className={classes.list}>
-            <li className={classes.listItem}>General</li>
-            <li className={classes.listItem}>Wallpapers</li>
-            <li className={classes.listItem}>Trips</li>
-          </ul>
+        {/* List of categories */}
+        <div className={classes.list}>
+          <NavLink to="/General" activeClassName={classes.listItem}>
+            General
+          </NavLink>
+          <NavLink to="/Wallpapers" activeClassName={classes.listItem}>
+            Wallpapers
+          </NavLink>
+          <NavLink to="/Trips" activeClassName={classes.listItem}>
+            Trips
+          </NavLink>
         </div>
 
         {/* Add a category */}
