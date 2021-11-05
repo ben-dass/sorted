@@ -18,6 +18,11 @@ function App() {
           exact
           render={(props) => <Content {...props} category="" />}
         />
+        <Route
+          path={["/Settings"]}
+          exact
+          render={(props) => <Content {...props} category="Settings" />}
+        />
         {categories.map((category) => (
           <Route
             key={Math.ceil(Math.random() * 1000)}
