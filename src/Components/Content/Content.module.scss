@@ -1,28 +1,46 @@
 @import "../../App.module.scss";
 
 .contentContainer {
-  margin-left: 14em;
-  margin-right: 1em;
-  margin-bottom: 1em;
+	margin-left: 14em;
+	margin-right: 1em;
+	margin-bottom: 1em;
 }
 
 .titleBar {
-  height: 3.6rem;
-  display: flex;
-  margin-left: -0.7rem;
-  justify-content: center;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(1px);
+	height: 3.6rem;
+	display: flex;
+	margin-left: -0.7rem;
+	justify-content: center;
+	align-items: center;
+	position: sticky;
+	top: 0;
+
+	background: rgba(255, 255, 255, 0.92);
+	backdrop-filter: blur(1px);
 }
 
 .title {
-  font-family: $font_zen;
-  font-size: 1.8em;
-  z-index: 1;
-  margin-left: 0.7rem;
+	z-index: 1;
+	margin-left: auto;
+
+	font-family: $font_zen;
+	font-size: 1.8em;
+}
+
+.icon {
+	margin-left: auto;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	border-radius: 5px;
+	transition: 200ms ease-in-out;
+  color: $gray;
+}
+
+.icon:hover {
+	background-color: $x-light-gray;
+  color: black;
+	transition: 200ms ease-in-out;
+  cursor: pointer;
 }
 
 .content {
