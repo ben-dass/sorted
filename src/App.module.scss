@@ -2,11 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
 
 // Colors
+$primary: #3b3b45;
+$primary-light: #8385b2
+;
+$primary-hover-background: #eaebff;
+
 $white: white;
 $light-gray: #b2b2b2;
 $x-light-gray: #dadada;
 $gray: gray;
-$black: #3b3b45;
 
 $hover-text: #f6eea4;
 $hover-black: #6f6f76;
@@ -16,3 +20,10 @@ $selected-black: #4e4e57;
 // Fonts
 $font_ephesis: "Ephesis", cursive;
 $font_zen: "Zen Kurenaido", sans-serif;
+
+
+// App.js settings
+.appBody {
+	display: flex;
+	justify-content: center;
+}

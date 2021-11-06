@@ -17,8 +17,8 @@ const SideNav = () => {
           <NavLink to="/" activeClassName={classes.appTitle}>Sorted</NavLink>
         </div>
 
-        {/* Categories */}
-        <div className={classes.listTitle}>categories</div>
+        {/* Collections */}
+        <div className={classes.listTitle}>Collections</div>
 
         {/* List of categories */}
         <div className={classes.list}>
