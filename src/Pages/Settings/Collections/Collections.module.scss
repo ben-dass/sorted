@@ -1,0 +1,135 @@
+@import "../../../App.module.scss";
+
+.collectionsSettingsContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	font-weight: 700;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid $x-light-gray;
+}
+
+.sectionHeading {
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 0.85rem;
+	
+	opacity: 0.6;
+}
+
+.collectionsTable {
+	width: 100%;
+}
+
+.tools {
+	display: none;
+	transition: 200ms ease-in-out;
+}
+
+.rowTools {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+
+	font-size: 0.9rem;
+}
+
+.rowToolEdit {
+	color: $green;
+	outline: 1px solid $green;
+	padding: 0.3rem 0.4rem;
+	border-radius: 4px;
+
+	transition: 200ms ease-in-out;
+}
+
+.rowToolDelete {
+	padding: 0.3rem 0.4rem;
+	
+	color: $red;
+	outline: 1px solid $red;
+	border-radius: 4px;
+
+	transition: 200ms ease-in-out;
+}
+
+.collectionsTable td {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 2rem;
+	padding: 0.3rem 0.5rem;
+
+	border-radius: 5px;
+	transition: 200ms ease-in-out;
+
+	.icon {
+		font-size: 1.1rem;
+		margin-bottom: -0.25rem;
+	}
+}
+
+.collectionsTable td:hover {
+	background-color: $x-light-gray;
+	transition: 200ms ease-in-out;
+
+	.tools {
+		display: flex;
+	}
+
+	.rowToolEdit {
+		background-color: white;
+
+		&:hover {
+			color: white;
+			background-color: $green;
+			cursor: pointer;
+
+			transition: 200ms ease-in-out;
+		}
+	}
+
+	.rowToolDelete {
+		background-color: white;
+
+		&:hover {
+			color: white;
+			background-color: $red;
+
+			transition: 200ms ease-in-out;
+			cursor: pointer;
+		}
+	}
+}
+
+.add {
+	display: flex;
+	margin-top: 0.5rem;
+	justify-content: center;
+	padding: 0.5rem 0rem;
+	
+	border-radius: 4px;
+	outline: 1px solid $primary;
+	color: $primary;
+	font-size: 0.9rem;
+	cursor: pointer;
+
+	transition: 200ms ease-in-out;
+
+	.icon {
+		font-size: 1.1rem;
+		padding-top: 0.05rem;
+	}
+
+	&:hover {
+		background-color: $primary;
+		color: white;
+		transition: 200ms ease-in-out;
+	}
+}

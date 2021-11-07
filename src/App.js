@@ -7,6 +7,7 @@ import TitleBar from "./Components/TitleBar/TitleBar";
 import Settings from "./Pages/Settings/Settings";
 
 import classes from "./App.module.scss";
+import Welcome from "./Pages/Welcome/Welcome";
 
 function App() {
 	const categoriesContext = useCategories();
@@ -19,6 +20,9 @@ function App() {
 			<Switch>
 				<Route path="/" exact>
 					<TitleBar category="Welcome" />
+					<div className={classes.appBody}>
+						<Welcome />
+					</div>
 				</Route>
 				<Route path="/Settings/General">
 					<TitleBar category="Settings" />

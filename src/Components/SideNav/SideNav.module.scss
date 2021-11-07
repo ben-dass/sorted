@@ -36,7 +36,6 @@
 .listTitle {
   margin-top: 1rem;
   margin-left: 1rem;
-  margin-bottom: -0.5rem;
 
   color: $light-gray;
   font-weight: 600;
@@ -46,7 +45,7 @@
 
 .list {
   margin-top: 0.7rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
 
@@ -77,39 +76,5 @@
     background: $selected-black;
     transition: 300ms;
     border-radius: 4px;
-  }
-}
-
-.add {
-  margin-top: 0.2rem;
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 5px;
-
-  color: $light-gray;
-  font-size: 0.8rem;
-  cursor: pointer;
-
-  .icon {
-    font-size: 1em;
-    padding-top: 0.1rem;
-  }
-
-  transition: 300ms ease-in-out, opacity 100ms ease-in-out 200ms;
-}
-
-.sideNav:hover {
-  .add {
-    opacity: 1;
-  }
-
-  .add:hover {
-    color: white;
-    background-color: $hover-black;
-
-    transition: 300ms ease-in-out;
   }
 }

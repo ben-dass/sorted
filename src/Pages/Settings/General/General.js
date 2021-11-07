@@ -1,7 +1,7 @@
 import React from "react";
 
 const General = () => {
-	return <>General settings</>;
+	return <>Coming soon ...</>;
 };
 
 export default General;
