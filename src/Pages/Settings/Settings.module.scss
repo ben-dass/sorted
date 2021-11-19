@@ -4,7 +4,7 @@
 	display: flex;
 	margin-top: 2em;
 	margin-left: 13rem;
-	width: 45rem;
+	width: 50rem;
 }
 
 .categoriesContainer {
@@ -15,6 +15,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.5em;
+	margin-left: -5rem;
 
 	a {
 		padding-top: 0.3em;

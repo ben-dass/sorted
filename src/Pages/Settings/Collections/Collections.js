@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCategories } from "../../../Contexts/CategoriesContext";
 
 import { AiTwotoneEdit, AiFillDelete } from "react-icons/ai";
-import {BiPlus} from "react-icons/bi"
+import { BiPlus } from "react-icons/bi";
 import classes from "./Collections.module.scss";
 
 const Collections = () => {
 	const categoriesContext = useCategories();
 	const categories = categoriesContext.categories;
+
+	const [collectionName, setCollectionName] = useState("");
+	
+	const handleAddCategory = () => {
+		categoriesContext.addCategory(collectionName);
+	};
 
 	return (
 		<div className={classes.collectionsSettingsContainer}>
@@ -18,7 +24,9 @@ const Collections = () => {
 					{categories.map((category) => (
 						<tr>
 							<td>
-								<div>{category.name}</div>
+								<div className={classes.categoryName}>
+									{category.name}
+								</div>
 								<span className={classes.tools}>
 									<div className={classes.rowTools}>
 										<div className={classes.rowToolEdit}>
@@ -39,10 +47,20 @@ const Collections = () => {
 						</tr>
 					))}
 				</table>
+
 				{/* Add a category */}
-				<div className={classes.add}>
-					<BiPlus className={classes.icon} />
-					&nbsp;&nbsp;Add category
+				<div className={classes.sectionHeading}>Add a Collection</div>
+				<div className={classes.addContainer}>
+					<input
+						type="text"
+						className={classes.input}
+						placeholder="Add a new collection here..."
+						onChange={(e) => setCollectionName(e.target.value)}
+					/>
+					<div className={classes.add} onClick={handleAddCategory}>
+						<BiPlus className={classes.icon} />
+						&nbsp;&nbsp;Add
+					</div>
 				</div>
 			</div>
 		</div>

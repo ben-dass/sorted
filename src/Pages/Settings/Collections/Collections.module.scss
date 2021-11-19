@@ -18,12 +18,18 @@
 	text-transform: uppercase;
 	font-weight: 600;
 	font-size: 0.85rem;
-	
+
 	opacity: 0.6;
 }
 
 .collectionsTable {
 	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.categoryName {
+	font-family: $font_zen;
+	font-size: 1.1rem;
 }
 
 .tools {
@@ -50,7 +56,7 @@
 
 .rowToolDelete {
 	padding: 0.3rem 0.4rem;
-	
+
 	color: $red;
 	outline: 1px solid $red;
 	border-radius: 4px;
@@ -108,28 +114,52 @@
 	}
 }
 
-.add {
-	display: flex;
+.addContainer {
+	display: inline-flex;
+	width: 100%;
 	margin-top: 0.5rem;
-	justify-content: center;
-	padding: 0.5rem 0rem;
+	border-radius: 5px;
 	
-	border-radius: 4px;
-	outline: 1px solid $primary;
-	color: $primary;
-	font-size: 0.9rem;
-	cursor: pointer;
-
-	transition: 200ms ease-in-out;
-
-	.icon {
+	.input {
+		width: 100%;
+		border-style: none;
+		border: none;
+		outline: none;
+		padding: 0.3rem 1rem;
 		font-size: 1.1rem;
-		padding-top: 0.05rem;
+		cursor: text;
+		background-color: $xx-light-gray;
+		outline: 1px solid $xx-light-gray;
+		border-radius: 5px 0 0 5px;
+		height: 100%;
+		font-family: $font_zen;
 	}
 
-	&:hover {
-		background-color: $primary;
-		color: white;
+	.add {
+		display: flex;
+
+		justify-content: center;
+		padding: 0.5rem 0rem;
+		width: 10rem;
+
+		border-radius: 0 5px 5px 0;
+		outline: 1px solid $primary;
+		color: $primary;
+		background-color: white;
+		font-size: 0.9rem;
+		cursor: pointer;
+
 		transition: 200ms ease-in-out;
+
+		.icon {
+			font-size: 1.1rem;
+			padding-top: 0.05rem;
+		}
+
+		&:hover {
+			background-color: $primary;
+			color: white;
+			transition: 200ms ease-in-out;
+		}
 	}
 }
