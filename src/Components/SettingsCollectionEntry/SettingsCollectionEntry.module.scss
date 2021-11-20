@@ -1,0 +1,177 @@
+@import "../../App.module.scss";
+
+.settingsCollectionEntryContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 2rem;
+	padding: 0.3rem 0.5rem;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+
+	transition: 200ms ease-in-out;
+
+	.categoryName {
+		font-family: $font_zen;
+		font-size: 1.1rem;
+	}
+
+	.tools {
+		display: none;
+		transition: 200ms ease-in-out;
+	}
+
+	.icon {
+		font-size: 1.1rem;
+		margin-bottom: -0.25rem;
+	}
+
+	.rowTools {
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+
+		font-size: 0.9rem;
+	}
+
+	.rowToolEdit {
+		padding: 0.35rem 0.4rem;
+
+		color: $green;
+		outline: 1px solid $green;
+		border-radius: 4px;
+
+		transition: 200ms ease-in-out;
+	}
+
+	.rowToolDelete {
+		padding: 0.35rem 0.4rem;
+
+		color: $red;
+		outline: 1px solid $red;
+		border-radius: 4px;
+
+		transition: 200ms ease-in-out;
+	}
+}
+
+.settingsCollectionEntryContainer:hover {
+	background-color: $x-light-gray;
+	transition: 200ms ease-in-out;
+
+	.tools {
+		display: flex;
+	}
+
+	.rowToolEdit {
+		background-color: white;
+
+		&:hover {
+			color: white;
+			background-color: $green;
+			cursor: pointer;
+
+			transition: 200ms ease-in-out;
+		}
+	}
+
+	.rowToolDelete {
+		background-color: white;
+
+		&:hover {
+			color: white;
+			background-color: $red;
+
+			transition: 200ms ease-in-out;
+			cursor: pointer;
+		}
+	}
+}
+
+.settingsCollectionEntryContainerActive {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 2.1rem;
+	padding: 0.3rem 0.5rem;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+
+	background-color: $xx-light-gray;
+	transition: 200ms ease-in-out;
+
+	.categoryName {
+		font-family: $font_zen;
+		font-size: 1.1rem;
+	}
+
+  .input {
+    margin-left: -0.1rem;
+		border-style: none;
+		border: none;
+		outline: none;
+		font-size: 1.1rem;
+		cursor: text;
+		background-color: $xx-light-gray;
+		font-family: $font_zen;
+	}
+
+	.icon {
+		font-size: 1.1rem;
+		margin-bottom: -0.25rem;
+	}
+
+	.rowTools {
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+
+		font-size: 0.9rem;
+	}
+
+	.tools {
+		display: flex;
+	}
+
+	.rowToolSave {
+		padding: 0.35rem 0.4rem;
+
+		color: $blue;
+		outline: 1px solid $blue;
+		border-radius: 4px;
+
+		transition: 200ms ease-in-out;
+		background-color: white;
+
+		&:hover {
+			color: white;
+			background-color: $blue;
+
+			transition: 200ms ease-in-out;
+			cursor: pointer;
+		}
+	}
+
+	.rowToolCancel {
+		padding: 0.35rem 0.4rem;
+
+		color: $purple;
+		outline: 1px solid $purple;
+		border-radius: 4px;
+
+		transition: 200ms ease-in-out;
+		background-color: white;
+
+		&:hover {
+			color: white;
+			background-color: $purple;
+
+			transition: 200ms ease-in-out;
+			cursor: pointer;
+		}
+	}
+}

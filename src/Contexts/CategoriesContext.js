@@ -1,5 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import {
+	collection,
+	doc,
+	getDocs,
+	addDoc,
+	deleteDoc,
+	updateDoc
+} from "firebase/firestore";
 import { db } from "../firebase";
 
 const CategoriesContext = createContext();
@@ -20,6 +27,7 @@ export const CategoriesProvider = ({ children }) => {
 
 		snapshot.forEach((doc) => {
 			tempCategories.push({
+				id: doc.id,
 				name: doc.data().name,
 			});
 		});
@@ -29,14 +37,42 @@ export const CategoriesProvider = ({ children }) => {
 	};
 
 	/**
-	 * addCategory - Add entry to database.
+	 * addCategory - Add category to database.
 	 *
-	 * @param {String} category - category of entry.
+	 * @param {String} category - name of category.
 	 */
 	const addCategory = async (category) => {
-		await setDoc(doc(db, "Categories"), {
+		console.log("Adding category...");
+		await addDoc(collection(db, "Categories"), {
 			name: category,
 		});
+		getCategoriesCollection();
+	};
+
+	/**
+	 * deleteCategory - Delete category to database.
+	 *
+	 * @param {String} categoryId - Category Id.
+	 */
+	const deleteCategory = async (categoryId) => {
+		console.log("Deleting category...");
+		await deleteDoc(doc(db, "Categories", categoryId));
+		getCategoriesCollection();
+	};
+
+	/**
+	 * deleteCategory - Delete category to database.
+	 *
+	 * @param {String} categoryId - Category Id.
+	 */
+	 const setNewCategoryName = async (categoryId, newCategoryName) => {
+		console.log("Setting new category name...");
+
+		const updateCategoryNameRef = doc(db, "Categories", categoryId);
+		await updateDoc(updateCategoryNameRef, {
+			name: newCategoryName,
+		});
+		getCategoriesCollection();
 	};
 
 	useEffect(() => {
@@ -47,6 +83,8 @@ export const CategoriesProvider = ({ children }) => {
 	const values = {
 		categories,
 		addCategory,
+		deleteCategory,
+		setNewCategoryName,
 	};
 
 	return (
