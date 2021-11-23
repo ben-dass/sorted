@@ -1,0 +1,152 @@
+@import "../../../App.module.scss";
+
+.imagesContainer {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.selectCollectionContainer {
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+}
+
+.listTitle {
+	color: $gray;
+	font-weight: 600;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	border-bottom: 1px solid $x-light-gray;
+	padding-bottom: 0.5rem;
+	padding-left: 0.5rem;
+}
+
+.collectionList {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 90%;
+
+	font-size: 1rem;
+	font-family: $font_zen;
+
+	a {
+		color: black;
+		text-decoration: none;
+
+		margin-bottom: 0.2rem;
+
+		padding-left: 0.5rem;
+		padding-top: 0.2rem;
+		padding-bottom: 0.3rem;
+
+		cursor: pointer;
+		transition: 300ms ease-in-out;
+	}
+
+	a:hover {
+		background-color: $x-light-gray;
+
+		border-radius: 4px;
+		transition: 300ms ease-in-out;
+	}
+
+	a:active,
+	a.active {
+		background: $xx-light-gray;
+		transition: 300ms;
+		border-radius: 4px;
+	}
+}
+
+.collectionContent {
+	width: 75%;
+	margin-left: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.imagesList {
+	margin-top: 1rem;
+}
+
+.imagesTools {
+	margin-top: 1rem;
+	width: 100%;
+	display: flex;
+	gap: 1rem;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.icon {
+	font-size: 1rem;
+}
+
+.iconAdd {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 0.3rem 0;
+  
+	font-size: 0.9rem;
+	color: $blue;
+	background-color: white;
+	outline: 1px solid $blue;
+
+	border-radius: 5px;
+	transition: 400ms ease-in-out;
+
+	&:hover {
+		background-color: $blue;
+		color: white;
+		cursor: pointer;
+	}
+}
+
+.iconEdit {
+	display: flex;
+  width: 100%;
+	justify-content: center;
+	align-items: center;
+  padding: 0.3rem 0;
+	
+	font-size: 0.9rem;
+  color: $green;
+	background-color: white;
+  outline: 1px solid $green;
+  
+	border-radius: 5px;
+	transition: 400ms ease-in-out;
+
+	&:hover {
+		background-color: $green;
+		color: white;
+		cursor: pointer;
+	}
+}
+
+.iconDelete {
+	display: flex;
+	width: 20%;
+	justify-content: center;
+	align-items: center;
+  padding: 0.3rem 0;
+  
+	font-size: 0.9rem;
+	color: $red;
+	background-color: white;
+	outline: 1px solid $red;
+  
+	border-radius: 5px;
+	transition: 400ms ease-in-out;
+
+	&:hover {
+		background-color: $red;
+		color: white;
+		cursor: pointer;
+	}
+}

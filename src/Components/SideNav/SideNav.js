@@ -1,12 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useCategories } from "../../Contexts/CategoriesContext";
 
+import { IoMdSettings } from "react-icons/io";
 import classes from "./SideNav.module.scss";
 
 const SideNav = () => {
 	const categoriesContext = useCategories();
 	const categories = categoriesContext.categories;
+
+	const { pathname } = useLocation();
 
 	return (
 		<div className={classes.sideNav}>
@@ -32,6 +35,26 @@ const SideNav = () => {
 							{category.name}
 						</NavLink>
 					))}
+				</div>
+
+				{/* Tools */}
+				<div className={classes.tools}>
+					<NavLink
+						className={classes.settings}
+						key={Math.ceil(Math.random() * 1000)}
+						to={`/Settings/General`}
+						activeClassName={classes.active}
+						isActive={() =>
+							[
+								"/Settings/General",
+								"/Settings/Collections",
+								"/Settings/Images",
+								"/Settings/About",
+							].includes(pathname)
+						}
+					>
+						<IoMdSettings className={classes.icon} /> Settings
+					</NavLink>
 				</div>
 			</div>
 		</div>

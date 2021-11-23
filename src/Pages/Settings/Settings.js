@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import General from "./General/General";
 import Collections from "./Collections/Collections";
 import About from "./About/About";
+import Images from "./Images/Images";
 
 import classes from "./Settings.module.scss";
 
@@ -29,6 +30,14 @@ const Settings = (props) => {
 				</NavLink>
 				<NavLink
 					key={Math.ceil(Math.random() * 1000)}
+					to={`/Settings/Images`}
+					className={classes.navLink}
+					activeClassName={classes.active}
+				>
+					Images
+				</NavLink>
+				<NavLink
+					key={Math.ceil(Math.random() * 1000)}
 					to={`/Settings/About`}
 					className={classes.navLink}
 					activeClassName={classes.active}
@@ -39,6 +48,7 @@ const Settings = (props) => {
 			<div className={classes.propertiesContainer}>
 				{category === "General" && <General />}
 				{category === "Collections" && <Collections />}
+				{category === "Images" && <Images />}
 				{category === "About" && <About />}
 			</div>
 		</div>

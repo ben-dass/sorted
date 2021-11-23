@@ -17,14 +17,14 @@
 
 	text-transform: uppercase;
 	font-weight: 600;
-	font-size: 0.85rem;
+	font-size: 0.8rem;
 
 	opacity: 0.6;
 }
 
 .collectionsTable {
 	width: 100%;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 
 td {
@@ -36,9 +36,11 @@ td {
 	width: 100%;
 	margin-top: 0.5rem;
 	border-radius: 5px;
+	margin-bottom: 1rem;
 
 	.input {
 		width: 100%;
+
 		border-style: none;
 		border: none;
 		outline: none;

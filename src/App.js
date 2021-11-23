@@ -14,31 +14,37 @@ function App() {
 	const categories = categoriesContext.categories;
 
 	return (
-		<>
+		<div className={classes.appBody}>
 			<SideNav />
 
 			<Switch>
 				<Route path="/" exact>
-					<TitleBar category="Welcome" />
-					<div className={classes.appBody}>
+					<div className={classes.content}>
+						<TitleBar category="Welcome" />
 						<Welcome />
 					</div>
 				</Route>
 				<Route path="/Settings/General">
-					<TitleBar category="Settings" />
-					<div className={classes.appBody}>
+					<div className={classes.content}>
+						<TitleBar category="Settings" />
 						<Settings category="General" />
 					</div>
 				</Route>
 				<Route path="/Settings/Collections">
-					<TitleBar category="Settings" />
-					<div className={classes.appBody}>
+					<div className={classes.content}>
+						<TitleBar category="Settings" />
 						<Settings category="Collections" />
 					</div>
 				</Route>
+				<Route path="/Settings/Images">
+					<div className={classes.content}>
+						<TitleBar category="Settings" />
+						<Settings category="Images" />
+					</div>
+				</Route>
 				<Route path="/Settings/About">
-					<TitleBar category="Settings" />
-					<div className={classes.appBody}>
+					<div className={classes.content}>
+						<TitleBar category="Settings" />
 						<Settings category="About" />
 					</div>
 				</Route>
@@ -48,12 +54,14 @@ function App() {
 						key={Math.ceil(Math.random() * 1000)}
 						path={`/${category.name}`}
 						render={(props) => (
-							<TitleBar {...props} category={category.name} />
+							<div className={classes.content}>
+								<TitleBar {...props} category={category.name} />
+							</div>
 						)}
 					/>
 				))}
 			</Switch>
-		</>
+		</div>
 	);
 }
 

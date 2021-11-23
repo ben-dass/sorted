@@ -1,15 +1,14 @@
 @import "../../App.module.scss";
 
 .contentContainer {
-	margin-left: 14em;
-	margin-right: 1em;
 	margin-bottom: 1em;
+	width: 100%;
+	box-shadow: 0px 0px 4px 1.5px rgba(59, 59, 69, 0.4);
 }
 
 .titleBar {
 	height: 3.6rem;
 	display: flex;
-	margin-left: -0.7rem;
 	justify-content: center;
 	align-items: center;
 	position: sticky;
@@ -26,38 +25,4 @@
 
 	font-family: $font_zen;
 	font-size: 1.8em;
-}
-
-.icon {
-	margin-left: auto;
-	font-size: 1.5rem;
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-	border-radius: 5px;
-	color: $gray;
-	transition: 200ms ease-in-out;
-	// background-color: plum;
-}
-
-.icon:hover {
-	background-color: $x-light-gray;
-	color: $primary;
-	transition: 200ms ease-in-out;
-	cursor: pointer;
-}
-
-a:active,
-a.active {
-	background: $x-light-gray;
-	border-radius: 4px;
-	
-
-	.icon {
-		color: $primary;
-		margin-bottom: -0.3rem;
-	}
-
-	transition: 300ms;
-}
-
-.content {
 }
