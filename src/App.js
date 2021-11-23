@@ -19,33 +19,43 @@ function App() {
 
 			<Switch>
 				<Route path="/" exact>
-					<div className={classes.content}>
+					<div className={classes.contentBody}>
 						<TitleBar category="Welcome" />
-						<Welcome />
+						<div className={classes.content}>
+							<Welcome />
+						</div>
 					</div>
 				</Route>
 				<Route path="/Settings/General">
-					<div className={classes.content}>
+					<div className={classes.contentBody}>
 						<TitleBar category="Settings" />
-						<Settings category="General" />
+						<div className={classes.content}>
+							<Settings category="General" />
+						</div>
 					</div>
 				</Route>
 				<Route path="/Settings/Collections">
-					<div className={classes.content}>
+					<div className={classes.contentBody}>
 						<TitleBar category="Settings" />
-						<Settings category="Collections" />
+						<div className={classes.content}>
+							<Settings category="Collections" />
+						</div>
 					</div>
 				</Route>
 				<Route path="/Settings/Images">
-					<div className={classes.content}>
+					<div className={classes.contentBody}>
 						<TitleBar category="Settings" />
-						<Settings category="Images" />
+						<div className={classes.content}>
+							<Settings category="Images" />
+						</div>
 					</div>
 				</Route>
 				<Route path="/Settings/About">
-					<div className={classes.content}>
+					<div className={classes.contentBody}>
 						<TitleBar category="Settings" />
-						<Settings category="About" />
+						<div className={classes.content}>
+							<Settings category="About" />
+						</div>
 					</div>
 				</Route>
 
@@ -54,7 +64,7 @@ function App() {
 						key={Math.ceil(Math.random() * 1000)}
 						path={`/${category.name}`}
 						render={(props) => (
-							<div className={classes.content}>
+							<div className={classes.contentBody}>
 								<TitleBar {...props} category={category.name} />
 							</div>
 						)}

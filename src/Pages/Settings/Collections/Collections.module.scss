@@ -7,17 +7,20 @@
 
 .title {
 	font-weight: 700;
-	padding-bottom: 0.5rem;
-	border-bottom: 1px solid $x-light-gray;
+	padding-bottom: 1.5rem;
+	padding-left: 0.5rem;
+	font-family: $font_montserrat;
 }
 
 .sectionHeading {
-	margin-top: 1rem;
 	margin-bottom: 0.5rem;
 
 	text-transform: uppercase;
 	font-weight: 600;
 	font-size: 0.8rem;
+	border-bottom: 1px solid $x-light-gray;
+	padding-bottom: 0.5rem;
+	padding-left: 0.5rem;
 
 	opacity: 0.6;
 }

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 // Colors
 $primary: #3b3b45;
@@ -24,6 +25,7 @@ $selected-black: #4e4e57;
 // Fonts
 $font_ephesis: "Ephesis", cursive;
 $font_zen: "Zen Kurenaido", sans-serif;
+$font_montserrat: "Montserrat", sans-serif;
 
 // App.js settings
 .appBody {
@@ -31,8 +33,15 @@ $font_zen: "Zen Kurenaido", sans-serif;
 	flex-direction: row;
 }
 
-.content {
+.contentBody {
 	display: flex;
-	width: 100%;
 	flex-direction: column;
+	width: 100%;
+	margin-left: 13rem;
+}
+
+.content {
+	margin: 1rem 2rem;
+	display: flex;
+	justify-content: center;
 }

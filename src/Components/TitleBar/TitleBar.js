@@ -6,10 +6,8 @@ const TitleBar = (props) => {
 	const category = props.category;
 
 	return (
-		<div className={classes.contentContainer}>
-			<div className={classes.titleBar}>
-				<div className={classes.title}>{category}</div>
-			</div>
+		<div className={classes.titleBar}>
+			<div className={classes.title}>{category}</div>
 		</div>
 	);
 };
