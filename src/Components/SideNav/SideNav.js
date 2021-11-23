@@ -32,7 +32,7 @@ const SideNav = () => {
 							to={`/${category.name}`}
 							activeClassName={classes.active}
 						>
-							{category.name}
+							{category.collectionName}
 						</NavLink>
 					))}
 				</div>

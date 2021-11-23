@@ -1,7 +1,14 @@
 import React from "react";
 
+import classes from "./General.module.scss";
+
 const General = () => {
-	return <>Coming soon ...</>;
+	return (
+		<>
+			<div className={classes.title}>General</div>
+			Coming soon ...
+		</>
+	);
 };
 
 export default General;

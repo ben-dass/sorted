@@ -39,7 +39,7 @@ const SettingsCollectionEntry = (props) => {
 	return (
 		<div className={className}>
 			{!editState && (
-				<div className={classes.categoryName}>{category.name}</div>
+				<div className={classes.categoryName}>{category.collectionName}</div>
 			)}
 
 			{editState && (

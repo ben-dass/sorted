@@ -50,6 +50,14 @@ function App() {
 						</div>
 					</div>
 				</Route>
+				<Route path="/Settings/addImages">
+					<div className={classes.contentBody}>
+						<TitleBar category="Settings" />
+						<div className={classes.content}>
+							<Settings category="Images" addImages={true} />
+						</div>
+					</div>
+				</Route>
 				<Route path="/Settings/About">
 					<div className={classes.contentBody}>
 						<TitleBar category="Settings" />

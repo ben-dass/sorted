@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCategories } from "../../../Contexts/CategoriesContext";
+import SettingsImagesList from "../../../Components/SettingsImagesList/SettingsImagesList";
 
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
@@ -9,6 +10,13 @@ import classes from "./Images.module.scss";
 const Images = () => {
 	const categoriesContext = useCategories();
 	const categories = categoriesContext.categories;
+
+	const [selectedCollectionName, setSelectedCollectionName] = useState("");
+
+	const handleClickedCategory = (e) => {
+		// categoriesContext.getImagesFromCollection(selectedCollectionName);
+		setSelectedCollectionName(e.target.textContent);
+	};
 
 	return (
 		<div>
@@ -19,11 +27,12 @@ const Images = () => {
 					<div className={classes.collectionList}>
 						{categories.map((category) => (
 							<NavLink
-								key={Math.ceil(Math.random() * 1000)}
-								to={`/${category.name}`}
+								key={Math.ceil(Math.random() * 10000)}
+								to={`/Settings/addImages/${category.collectionName}`}
 								activeClassName={classes.active}
+								onClick={(e) => handleClickedCategory(e)}
 							>
-								{category.name}
+								{category.collectionName}
 							</NavLink>
 						))}
 					</div>
@@ -33,7 +42,9 @@ const Images = () => {
 
 					{/* List of images */}
 					<div className={classes.imagesList}>
-						The images are listed here...
+						<SettingsImagesList
+							collection={selectedCollectionName}
+						/>
 					</div>
 
 					{/* Image tools */}

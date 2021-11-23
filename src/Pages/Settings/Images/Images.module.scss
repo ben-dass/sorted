@@ -69,6 +69,45 @@
 	}
 }
 
+.inactive {
+	color: black;
+	text-decoration: none;
+
+	margin-bottom: 0.2rem;
+
+	padding-left: 0.5rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.3rem;
+	padding-right: 0.5rem;
+
+	cursor: pointer;
+	transition: 300ms ease-in-out;
+
+	&:hover {
+		background-color: $xx-light-gray;
+
+		border-radius: 4px;
+		transition: 300ms ease-in-out;
+	}
+}
+
+.active {
+	color: black;
+	text-decoration: none;
+
+	margin-bottom: 0.2rem;
+
+	padding-left: 0.5rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.3rem;
+	padding-right: 0.5rem;
+
+	cursor: pointer;
+	background: $x-light-gray;
+	transition: 300ms ease-in-out;
+	border-radius: 4px;
+}
+
 .collectionContent {
 	width: 75%;
 	margin-left: 1rem;
@@ -101,7 +140,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: 0.3rem 0;
-  
+
 	font-size: 0.9rem;
 	color: $blue;
 	background-color: white;
@@ -123,16 +162,16 @@
 
 .iconEdit {
 	display: flex;
-  width: 100%;
+	width: 100%;
 	justify-content: center;
 	align-items: center;
-  padding: 0.3rem 0;
-	
+	padding: 0.3rem 0;
+
 	font-size: 0.9rem;
-  color: $green;
+	color: $green;
 	background-color: white;
-  outline: 1px solid $green;
-  
+	outline: 1px solid $green;
+
 	border-radius: 5px;
 	transition: 400ms ease-in-out;
 
@@ -148,13 +187,13 @@
 	width: 20%;
 	justify-content: center;
 	align-items: center;
-  padding: 0.3rem 0;
-  
+	padding: 0.3rem 0;
+
 	font-size: 0.9rem;
 	color: $red;
 	background-color: white;
 	outline: 1px solid $red;
-  
+
 	border-radius: 5px;
 	transition: 400ms ease-in-out;
 

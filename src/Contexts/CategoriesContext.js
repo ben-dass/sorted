@@ -2,10 +2,11 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import {
 	collection,
 	doc,
+	getDoc,
 	getDocs,
 	addDoc,
 	deleteDoc,
-	updateDoc
+	updateDoc,
 } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -27,8 +28,8 @@ export const CategoriesProvider = ({ children }) => {
 
 		snapshot.forEach((doc) => {
 			tempCategories.push({
-				id: doc.id,
-				name: doc.data().name,
+				collectionId: doc.id,
+				collectionName: doc.data().name,
 			});
 		});
 
@@ -65,7 +66,7 @@ export const CategoriesProvider = ({ children }) => {
 	 *
 	 * @param {String} categoryId - Category Id.
 	 */
-	 const setNewCategoryName = async (categoryId, newCategoryName) => {
+	const setNewCategoryName = async (categoryId, newCategoryName) => {
 		console.log("Setting new category name...");
 
 		const updateCategoryNameRef = doc(db, "Categories", categoryId);
@@ -73,6 +74,33 @@ export const CategoriesProvider = ({ children }) => {
 			name: newCategoryName,
 		});
 		getCategoriesCollection();
+	};
+
+	const getImagesFromCollection = async (collectionName) => {
+		let category = categories.find(
+			(element) => element.collectionName === collectionName
+		);
+
+		if (category != null) {
+			const categoryRef = doc(db, "Categories", category.collectionId);
+			const docSnap = await getDoc(categoryRef);
+
+			if (docSnap.exists()) {
+				let imagesObject = docSnap.data().imageUrls;
+
+				if (imagesObject != null) {
+					console.log(
+						"Images based on selected category has been set."
+					);
+					return imagesObject;
+				}
+			} else {
+				console.log(
+					"CategoriesContext - getImagesFromCollection - Document does not exist!"
+				);
+				return;
+			}
+		}
 	};
 
 	useEffect(() => {
@@ -85,6 +113,7 @@ export const CategoriesProvider = ({ children }) => {
 		addCategory,
 		deleteCategory,
 		setNewCategoryName,
+		getImagesFromCollection,
 	};
 
 	return (
