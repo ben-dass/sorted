@@ -50,14 +50,6 @@ function App() {
 						</div>
 					</div>
 				</Route>
-				<Route path="/Settings/addImages">
-					<div className={classes.contentBody}>
-						<TitleBar category="Settings" />
-						<div className={classes.content}>
-							<Settings category="Images" addImages={true} />
-						</div>
-					</div>
-				</Route>
 				<Route path="/Settings/About">
 					<div className={classes.contentBody}>
 						<TitleBar category="Settings" />
@@ -70,10 +62,10 @@ function App() {
 				{categories.map((category) => (
 					<Route
 						key={Math.ceil(Math.random() * 1000)}
-						path={`/${category.name}`}
+						path={`/${category.collectionName}`}
 						render={(props) => (
 							<div className={classes.contentBody}>
-								<TitleBar {...props} category={category.name} />
+								<TitleBar {...props} category={category.collectionName} />
 							</div>
 						)}
 					/>

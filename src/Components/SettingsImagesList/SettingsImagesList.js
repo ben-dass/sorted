@@ -30,11 +30,11 @@ const SettingsImagesList = (props) => {
 		<>
 			<div>{selectedCollection}</div>
 			<div>
-				{Object.keys(images).map((key) => (
-					<div key={Math.ceil(Math.random() * 10000)}>
-						<span>{key}</span>: &nbsp;
-						<span>{images[key]}</span>
-					</div>
+				{images.map((image) => (
+					<span key={Math.ceil(Math.random() * 10000)}>
+						<div>{image.fileName}</div>
+						<div>{image.url}</div>
+					</span>
 				))}
 			</div>
 		</>

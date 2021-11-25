@@ -12,10 +12,28 @@ const Images = () => {
 	const categories = categoriesContext.categories;
 
 	const [selectedCollectionName, setSelectedCollectionName] = useState("");
+	const [selectedCollectionId, setSelectedCollectionId] = useState("");
+	const [addState, setAddState] = useState(false);
+	const [file, setFile] = useState(null);
 
 	const handleClickedCategory = (e) => {
-		// categoriesContext.getImagesFromCollection(selectedCollectionName);
 		setSelectedCollectionName(e.target.textContent);
+		setSelectedCollectionId(
+			categories.find(
+				(element) => element.collectionName === e.target.textContent
+			).collectionId
+		);
+	};
+
+	const addHandler = () => {
+		setAddState(!addState);
+	};
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		const fileName = e.target.fileName.value;
+		await categoriesContext.addImage(file, fileName, selectedCollectionId);
+		addHandler();
 	};
 
 	return (
@@ -28,7 +46,7 @@ const Images = () => {
 						{categories.map((category) => (
 							<NavLink
 								key={Math.ceil(Math.random() * 10000)}
-								to={`/Settings/addImages/${category.collectionName}`}
+								to={`/Settings/Images/${category.collectionName}`}
 								activeClassName={classes.active}
 								onClick={(e) => handleClickedCategory(e)}
 							>
@@ -40,27 +58,68 @@ const Images = () => {
 				<div className={classes.collectionContent}>
 					<div className={classes.listTitle}>Images</div>
 
-					{/* List of images */}
-					<div className={classes.imagesList}>
-						<SettingsImagesList
-							collection={selectedCollectionName}
-						/>
-					</div>
+					{!addState && (
+						<>
+							{/* List of images */}
+							<div className={classes.imagesList}>
+								<SettingsImagesList
+									collection={selectedCollectionName}
+								/>
+							</div>
 
-					{/* Image tools */}
-					<div className={classes.imagesTools}>
-						<div className={classes.iconAdd}>
-							<BsPlusLg className={classes.icon} />
-							&nbsp; Add
+							{/* Image tools */}
+							<div className={classes.imagesTools}>
+								<div
+									className={classes.add}
+									onClick={addHandler}
+								>
+									<BsPlusLg className={classes.icon} />
+									&nbsp; Add
+								</div>
+								<div className={classes.edit}>
+									<AiFillEdit className={classes.icon} />
+									&nbsp; Edit
+								</div>
+								<div className={classes.delete}>
+									<AiFillDelete className={classes.icon} />
+								</div>
+							</div>
+						</>
+					)}
+
+					{addState && (
+						<div className={classes.formContainer}>
+							<form
+								onSubmit={onSubmit}
+								className={classes.addFileForm}
+							>
+								<div>Select a file</div>
+								<input
+									type="file"
+									onChange={(e) => setFile(e.target.files[0])}
+								/>
+								<input
+									type="text"
+									placeholder="Filename"
+									name="fileName"
+								/>
+								<div className={classes.actionButtons}>
+									<button
+										className={classes.submit}
+										type="submit"
+									>
+										Submit
+									</button>
+									<div
+										className={classes.back}
+										onClick={addHandler}
+									>
+										Back
+									</div>
+								</div>
+							</form>
 						</div>
-						<div className={classes.iconEdit}>
-							<AiFillEdit className={classes.icon} />
-							&nbsp; Edit
-						</div>
-						<div className={classes.iconDelete}>
-							<AiFillDelete className={classes.icon} />
-						</div>
-					</div>
+					)}
 				</div>
 			</div>
 		</div>

@@ -25,7 +25,7 @@ const Collections = () => {
 			<table className={classes.collectionsTable}>
 				<tbody>
 					{categories.map((category) => (
-						<tr key={Math.ceil(Math.random() * 10000)}>
+						<tr key={category.collectionName}>
 							<td>
 								<SettingsCollectionEntry category={category} />
 							</td>

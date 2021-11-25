@@ -29,7 +29,7 @@ const SideNav = () => {
 					{categories.map((category) => (
 						<NavLink
 							key={Math.ceil(Math.random() * 1000)}
-							to={`/${category.name}`}
+							to={`/${category.collectionName}`}
 							activeClassName={classes.active}
 						>
 							{category.collectionName}

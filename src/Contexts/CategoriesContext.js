@@ -7,7 +7,9 @@ import {
 	addDoc,
 	deleteDoc,
 	updateDoc,
+	arrayUnion,
 } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db } from "../firebase";
 
 const CategoriesContext = createContext();
@@ -76,6 +78,11 @@ export const CategoriesProvider = ({ children }) => {
 		getCategoriesCollection();
 	};
 
+	/**
+	 * getImagesFromCollection - Gets all the images for the requested collection.
+	 *
+	 * @param {String} collectionName - Name of collection.
+	 */
 	const getImagesFromCollection = async (collectionName) => {
 		let category = categories.find(
 			(element) => element.collectionName === collectionName
@@ -86,7 +93,7 @@ export const CategoriesProvider = ({ children }) => {
 			const docSnap = await getDoc(categoryRef);
 
 			if (docSnap.exists()) {
-				let imagesObject = docSnap.data().imageUrls;
+				let imagesObject = docSnap.data().images;
 
 				if (imagesObject != null) {
 					console.log(
@@ -103,6 +110,33 @@ export const CategoriesProvider = ({ children }) => {
 		}
 	};
 
+	/**
+	 * addImage - Add an image to a collection.
+	 *
+	 * @param {Object} file - The file that is being updated.
+	 * @param {String} fileName - Name of file.
+	 * @param {String} categoryId - the category id the image is going to.
+	 */
+	const addImage = async (file, fileName, categoryId) => {
+		const storage = getStorage();
+		const storageRef = ref(storage, fileName);
+
+		// Upload file to Firebase Storage
+		await uploadBytes(storageRef, file);
+		console.log("Image uploaded to Storage");
+
+		// Update category document in Firestore
+		const dbRef = doc(db, "Categories", categoryId);
+		const fileURL = await getDownloadURL(ref(storage, fileName));
+
+		await updateDoc(dbRef, {
+			images: arrayUnion({
+				fileName: fileName,
+				url: fileURL,
+			}),
+		});
+	};
+
 	useEffect(() => {
 		getCategoriesCollection();
 		// eslint-disable-next-line
@@ -114,6 +148,7 @@ export const CategoriesProvider = ({ children }) => {
 		deleteCategory,
 		setNewCategoryName,
 		getImagesFromCollection,
+		addImage,
 	};
 
 	return (
