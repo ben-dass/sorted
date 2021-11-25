@@ -8,6 +8,7 @@ import Settings from "./Pages/Settings/Settings";
 
 import classes from "./App.module.scss";
 import Welcome from "./Pages/Welcome/Welcome";
+import Content from "./Pages/Content/Content";
 
 function App() {
 	const categoriesContext = useCategories();
@@ -65,7 +66,14 @@ function App() {
 						path={`/${category.collectionName}`}
 						render={(props) => (
 							<div className={classes.contentBody}>
-								<TitleBar {...props} category={category.collectionName} />
+								<TitleBar
+									{...props}
+									category={category.collectionName}
+								/>
+								<Content
+									{...props}
+									category={category.collectionName}
+								/>
 							</div>
 						)}
 					/>
