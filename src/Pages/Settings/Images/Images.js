@@ -11,8 +11,9 @@ const Images = () => {
 	const categoriesContext = useCategories();
 	const categories = categoriesContext.categories;
 
-	const [selectedCollectionName, setSelectedCollectionName] = useState("");
+	const [selectedCollectionName, setSelectedCollectionName] = useState(null);
 	const [selectedCollectionId, setSelectedCollectionId] = useState("");
+	const [error, setError] = useState(null);
 	const [addState, setAddState] = useState(false);
 	const [file, setFile] = useState(null);
 
@@ -56,33 +57,41 @@ const Images = () => {
 					</div>
 				</div>
 				<div className={classes.collectionContent}>
-					<div className={classes.listTitle}>Images</div>
+					<div className={classes.headerWithTools}>
+						<div className={classes.listTitle}>Images</div>
+						{/* Image tools */}
+						<div className={classes.imagesTools}>
+							<div className={classes.add} onClick={addHandler}>
+								<BsPlusLg className={classes.icon} />
+							</div>
+							<div className={classes.edit}>
+								<AiFillEdit className={classes.icon} />
+							</div>
+							<div className={classes.delete}>
+								<AiFillDelete className={classes.icon} />
+							</div>
+						</div>
+					</div>
 
 					{!addState && (
 						<>
 							{/* List of images */}
 							<div className={classes.imagesList}>
-								<SettingsImagesList
-									collection={selectedCollectionName}
-								/>
-							</div>
+								{!selectedCollectionName && (
+									<>
+										<div>
+											Please select a collection to view
+											its images...
+										</div>
+										{error && <div>{error}</div>}
+									</>
+								)}
 
-							{/* Image tools */}
-							<div className={classes.imagesTools}>
-								<div
-									className={classes.add}
-									onClick={addHandler}
-								>
-									<BsPlusLg className={classes.icon} />
-									&nbsp; Add
-								</div>
-								<div className={classes.edit}>
-									<AiFillEdit className={classes.icon} />
-									&nbsp; Edit
-								</div>
-								<div className={classes.delete}>
-									<AiFillDelete className={classes.icon} />
-								</div>
+								{selectedCollectionName && (
+									<SettingsImagesList
+										collection={selectedCollectionName}
+									/>
+								)}
 							</div>
 						</>
 					)}

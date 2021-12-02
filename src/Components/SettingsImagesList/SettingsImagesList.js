@@ -28,7 +28,6 @@ const SettingsImagesList = (props) => {
 
 	return (
 		<>
-			<div>{selectedCollection}</div>
 			<div>
 				{images.map((image) => (
 					<span key={Math.ceil(Math.random() * 10000)}>

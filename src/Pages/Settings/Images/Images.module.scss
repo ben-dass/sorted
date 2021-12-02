@@ -19,13 +19,19 @@
 	flex-direction: column;
 }
 
+.headerWithTools {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 1px solid $x-light-gray;
+	padding-bottom: 0.5rem;
+}
+
 .listTitle {
 	color: $gray;
 	font-weight: 600;
 	font-size: 0.8rem;
 	text-transform: uppercase;
-	border-bottom: 1px solid $x-light-gray;
-	padding-bottom: 0.5rem;
 	padding-left: 0.5rem;
 }
 
@@ -121,13 +127,13 @@
 }
 
 .imagesTools {
-	margin-top: 1rem;
-	width: 100%;
+	// margin-top: 1rem;
+	// width: 40%;
 	display: flex;
-	gap: 1rem;
+	gap: 0.5rem;
 	flex-direction: row;
 	justify-content: space-between;
-	padding-left: 0.5rem;
+	// padding-left: 0.5rem;
 }
 
 .icon {
@@ -136,12 +142,12 @@
 
 .add {
 	display: flex;
-	width: 100%;
+	width: 2rem;
 	justify-content: center;
 	align-items: center;
 	padding: 0.3rem 0;
 
-	font-size: 0.9rem;
+	font-size: 1.1rem;
 	color: $blue;
 	background-color: white;
 	outline: 1px solid $blue;
@@ -162,12 +168,12 @@
 
 .edit {
 	display: flex;
-	width: 100%;
+	width: 2rem;
 	justify-content: center;
 	align-items: center;
 	padding: 0.3rem 0;
 
-	font-size: 0.9rem;
+	font-size: 1.1rem;
 	color: $green;
 	background-color: white;
 	outline: 1px solid $green;
@@ -184,12 +190,12 @@
 
 .delete {
 	display: flex;
-	width: 20%;
+	width: 2rem;
 	justify-content: center;
 	align-items: center;
 	padding: 0.3rem 0;
 
-	font-size: 0.9rem;
+	font-size: 1.1rem;
 	color: $red;
 	background-color: white;
 	outline: 1px solid $red;
