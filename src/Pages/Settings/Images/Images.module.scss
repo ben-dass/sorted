@@ -19,27 +19,35 @@
 	flex-direction: column;
 }
 
-.headerWithTools {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	border-bottom: 1px solid $x-light-gray;
-	padding-bottom: 0.5rem;
-}
-
 .listTitle {
 	color: $gray;
 	font-weight: 600;
 	font-size: 0.8rem;
 	text-transform: uppercase;
 	padding-left: 0.5rem;
+	border-bottom: 1px solid $x-light-gray;
+	padding-bottom: 0.5rem;
+}
+
+.sectionHeading {
+	margin-bottom: 0.5rem;
+
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 0.8rem;
+	border-bottom: 1px solid $x-light-gray;
+	padding-bottom: 0.5rem;
+	padding-left: 0.5rem;
+
+	opacity: 0.6;
 }
 
 .collectionList {
 	margin-top: 0.5rem;
+	padding-top: 0.5rem;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	width: 9.5rem;
 	height: 90%;
 
 	font-size: 1rem;
@@ -119,6 +127,13 @@
 	margin-left: 1rem;
 	display: flex;
 	flex-direction: column;
+
+	.selectAContainerPlease {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 3rem;
+		opacity: 0.5;
+	}
 }
 
 .imagesList {
@@ -126,152 +141,8 @@
 	padding-left: 0.5rem;
 }
 
-.imagesTools {
-	// margin-top: 1rem;
-	// width: 40%;
+.addImageContainer {
+	margin-top: 1rem;
 	display: flex;
-	gap: 0.5rem;
-	flex-direction: row;
-	justify-content: space-between;
-	// padding-left: 0.5rem;
-}
-
-.icon {
-	font-size: 1rem;
-}
-
-.add {
-	display: flex;
-	width: 2rem;
-	justify-content: center;
-	align-items: center;
-	padding: 0.3rem 0;
-
-	font-size: 1.1rem;
-	color: $blue;
-	background-color: white;
-	outline: 1px solid $blue;
-
-	border-radius: 5px;
-	transition: 400ms ease-in-out;
-
-	.icon {
-		font-size: 0.7rem;
-	}
-
-	&:hover {
-		background-color: $blue;
-		color: white;
-		cursor: pointer;
-	}
-}
-
-.edit {
-	display: flex;
-	width: 2rem;
-	justify-content: center;
-	align-items: center;
-	padding: 0.3rem 0;
-
-	font-size: 1.1rem;
-	color: $green;
-	background-color: white;
-	outline: 1px solid $green;
-
-	border-radius: 5px;
-	transition: 400ms ease-in-out;
-
-	&:hover {
-		background-color: $green;
-		color: white;
-		cursor: pointer;
-	}
-}
-
-.delete {
-	display: flex;
-	width: 2rem;
-	justify-content: center;
-	align-items: center;
-	padding: 0.3rem 0;
-
-	font-size: 1.1rem;
-	color: $red;
-	background-color: white;
-	outline: 1px solid $red;
-
-	border-radius: 5px;
-	transition: 400ms ease-in-out;
-
-	&:hover {
-		background-color: $red;
-		color: white;
-		cursor: pointer;
-	}
-}
-
-.formContainer {
-	display: flex;
-	justify-content: center;
-}
-
-.addFileForm {
-	display: flex;
-	flex-direction: column;
-	padding: 1rem;
-	gap: 1rem;
-	width: 20rem;
-}
-
-.actionButtons {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	gap: 1rem;
-	margin-top: 2rem;
-}
-
-.back {
-	display: flex;
-	width: 7rem;
-	justify-content: center;
-	align-items: center;
-	padding: 0.3rem 0;
-
-	font-size: 0.9rem;
-	color: $purple;
-	background-color: white;
-	outline: 1px solid $purple;
-
-	border-radius: 5px;
-	transition: 400ms ease-in-out;
-
-	&:hover {
-		background-color: $purple;
-		color: white;
-		cursor: pointer;
-	}
-}
-
-.submit {
-	display: flex;
-	width: 7rem;
-	justify-content: center;
-	align-items: center;
-	padding: 0.3rem 0;
-
-	border: none;
-	font-size: 0.85rem;
-	color: $green;
-	background-color: white;
-	outline: 1px solid $green;
-
-	border-radius: 5px;
-	transition: 400ms ease-in-out;
-
-	&:hover {
-		background-color: $green;
-		color: white;
-		cursor: pointer;
-	}
+	width: 100%;
 }

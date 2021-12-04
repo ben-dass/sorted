@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCategories } from "../../../Contexts/CategoriesContext";
 import SettingsImagesList from "../../../Components/SettingsImagesList/SettingsImagesList";
+import AddImage from "./AddImage/AddImage";
 
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { BsPlusLg } from "react-icons/bs";
 import classes from "./Images.module.scss";
 
 const Images = () => {
@@ -13,9 +12,6 @@ const Images = () => {
 
 	const [selectedCollectionName, setSelectedCollectionName] = useState(null);
 	const [selectedCollectionId, setSelectedCollectionId] = useState("");
-	const [error, setError] = useState(null);
-	const [addState, setAddState] = useState(false);
-	const [file, setFile] = useState(null);
 
 	const handleClickedCategory = (e) => {
 		setSelectedCollectionName(e.target.textContent);
@@ -26,21 +22,13 @@ const Images = () => {
 		);
 	};
 
-	const addHandler = () => {
-		setAddState(!addState);
-	};
 
-	const onSubmit = async (e) => {
-		e.preventDefault();
-		const fileName = e.target.fileName.value;
-		await categoriesContext.addImage(file, fileName, selectedCollectionId);
-		addHandler();
-	};
 
 	return (
 		<div>
 			<div className={classes.title}>Manage images</div>
 			<div className={classes.imagesContainer}>
+				{/* List of categories */}
 				<div className={classes.selectCollectionContainer}>
 					<div className={classes.listTitle}>Collections</div>
 					<div className={classes.collectionList}>
@@ -56,79 +44,35 @@ const Images = () => {
 						))}
 					</div>
 				</div>
+
+				{/* Images */}
 				<div className={classes.collectionContent}>
-					<div className={classes.headerWithTools}>
-						<div className={classes.listTitle}>Images</div>
-						{/* Image tools */}
-						<div className={classes.imagesTools}>
-							<div className={classes.add} onClick={addHandler}>
-								<BsPlusLg className={classes.icon} />
-							</div>
-							<div className={classes.edit}>
-								<AiFillEdit className={classes.icon} />
-							</div>
-							<div className={classes.delete}>
-								<AiFillDelete className={classes.icon} />
-							</div>
-						</div>
-					</div>
+					<div className={classes.listTitle}>Your Images</div>
 
-					{!addState && (
-						<>
-							{/* List of images */}
-							<div className={classes.imagesList}>
-								{!selectedCollectionName && (
-									<>
-										<div>
-											Please select a collection to view
-											its images...
-										</div>
-										{error && <div>{error}</div>}
-									</>
-								)}
-
-								{selectedCollectionName && (
-									<SettingsImagesList
-										collection={selectedCollectionName}
-									/>
-								)}
+					{/* List of images */}
+					<div className={classes.imagesList}>
+						{!selectedCollectionName && (
+							<div className={classes.selectAContainerPlease}>
+								Please select a collection to view its images...
 							</div>
-						</>
-					)}
+						)}
 
-					{addState && (
-						<div className={classes.formContainer}>
-							<form
-								onSubmit={onSubmit}
-								className={classes.addFileForm}
-							>
-								<div>Select a file</div>
-								<input
-									type="file"
-									onChange={(e) => setFile(e.target.files[0])}
+						{selectedCollectionName && (
+							<>
+								{/* List of images */}
+								<SettingsImagesList
+									collection={selectedCollectionName}
 								/>
-								<input
-									type="text"
-									placeholder="Filename"
-									name="fileName"
-								/>
-								<div className={classes.actionButtons}>
-									<button
-										className={classes.submit}
-										type="submit"
-									>
-										Submit
-									</button>
-									<div
-										className={classes.back}
-										onClick={addHandler}
-									>
-										Back
-									</div>
+
+								{/* Add an image */}
+								<div className={classes.sectionHeading}>
+									Add an image
 								</div>
-							</form>
-						</div>
-					)}
+
+								<AddImage selectedCollectionId={selectedCollectionId} />
+							</>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

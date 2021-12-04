@@ -1,0 +1,63 @@
+@import "../../../../App.module.scss";
+
+.addImageContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+
+	.inputs {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+
+		.textInput {
+			font-size: 1.1rem;
+			width: 80%;
+		}
+
+		.fileInput {
+			font-size: 0.9rem;
+			padding: 0.55rem 1rem;
+			cursor: pointer;
+		}
+	}
+
+	input {
+		width: 100%;
+
+		border-style: none;
+		border: none;
+		outline: none;
+		padding: 0.35rem 1rem;
+
+		cursor: text;
+
+		outline: 1px solid $xx-light-gray;
+		border-radius: 5px;
+		height: 100%;
+		font-family: $font_zen;
+	}
+}
+
+.submit {
+	display: flex;
+	width: 7rem;
+	justify-content: center;
+	align-items: center;
+
+	border: none;
+	font-size: 0.85rem;
+	color: $green;
+	background-color: white;
+	outline: 1px solid $green;
+
+	border-radius: 5px;
+	transition: 400ms ease-in-out;
+
+	&:hover {
+		background-color: $green;
+		color: white;
+		cursor: pointer;
+	}
+}

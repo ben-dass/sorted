@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useCategories } from "../../Contexts/CategoriesContext";
 
+import { saveAs } from "file-saver";
+
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-
-import { AiOutlineCloudDownload, AiOutlineFullscreen } from "react-icons/ai";
-
+import { AiOutlineCloudDownload } from "react-icons/ai";
 import classes from "./Content.module.scss";
 
 const Content = (props) => {
@@ -30,6 +30,10 @@ const Content = (props) => {
 		return;
 	};
 
+	const downloadImage = (url, fileName) => {
+		saveAs(url, fileName);
+	};
+
 	useEffect(() => {
 		getImages();
 		// eslint-disable-next-line
@@ -39,7 +43,7 @@ const Content = (props) => {
 		<div className={classes.contentContainer}>
 			{images.map((image) => (
 				<span key={Math.ceil(Math.random() * 10000)}>
-					<Card sx={{ width: 345 }}>
+					<Card sx={{ width: 300 }}>
 						<CardMedia
 							component="img"
 							height="140"
@@ -59,16 +63,22 @@ const Content = (props) => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button size="small">
+							{/* It doesn't download in current tab because you need a backend to allow cors! */}
+							<Button
+								size="small"
+								onClick={() =>
+									downloadImage(image.url, image.fileName)
+								}
+							>
 								<AiOutlineCloudDownload
 									className={classes.icon}
 								/>
 								&nbsp; Download
 							</Button>
-							<Button size="small">
+							{/* <Button size="small">
 								<AiOutlineFullscreen className={classes.icon} />
-								&nbsp; View Fullscreen
-							</Button>
+								&nbsp; View
+							</Button> */}
 						</CardActions>
 					</Card>
 				</span>

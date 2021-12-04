@@ -15,31 +15,33 @@ const SettingsCollectionEntry = (props) => {
 	const currentInputEdit = useRef(null);
 	const [editState, setEditState] = useState(false);
 	const [className, setClassName] = useState(inactiveEdit);
-  const [tempCategoryName, setTempCategoryName] = useState(category.name);
+	const [tempCategoryName, setTempCategoryName] = useState(category.name);
 
 	const handleDeleteCategory = async (categoryId) => {
 		await categoriesContext.deleteCategory(categoryId);
 	};
 
-  const handleSaveEdit = async (id) => {
-    await categoriesContext.setNewCategoryName(id, tempCategoryName);
-  }
+	const handleSaveEdit = async (id) => {
+		await categoriesContext.setNewCategoryName(id, tempCategoryName);
+	};
 
 	const toggleEditState = () => {
 		setEditState(!editState);
 		setClassName(className === inactiveEdit ? activeEdit : inactiveEdit);
 	};
 
-  useEffect(() => {
-    if(editState) {
-      currentInputEdit.current.focus();
-    }
-  }, [editState])
+	useEffect(() => {
+		if (editState) {
+			currentInputEdit.current.focus();
+		}
+	}, [editState]);
 
 	return (
 		<div className={className}>
 			{!editState && (
-				<div className={classes.categoryName}>{category.collectionName}</div>
+				<div className={classes.categoryName}>
+					{category.collectionName}
+				</div>
 			)}
 
 			{editState && (
@@ -48,7 +50,7 @@ const SettingsCollectionEntry = (props) => {
 					type="text"
 					className={classes.input}
 					defaultValue={category.name}
-          onChange={(e) => setTempCategoryName(e.target.value)}
+					onChange={(e) => setTempCategoryName(e.target.value)}
 				/>
 			)}
 
