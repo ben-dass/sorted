@@ -11,7 +11,7 @@ const AddImage = (props) => {
 	const [filename, setFilename] = useState("");
 	const [error, setError] = useState("");
 	const [isDisabled, setIsDisabled] = useState(false);
-	const [className, setClassName] = useState(classes.submit)
+	const [className, setClassName] = useState(classes.submit);
 
 	const fileRef = useRef();
 
@@ -23,16 +23,20 @@ const AddImage = (props) => {
 
 		if (filename === "") {
 			setError("Please enter a filename to upload an image");
+			setIsDisabled(false);
+			setClassName(classes.submit);
 			return;
 		}
 
-		if (file === "") {
+		if (file.length === 0) {
 			setError("Please select a file to upload an image ");
+			setIsDisabled(false);
+			setClassName(classes.submit);
 			return;
 		}
 
 		await categoriesContext.addImage(
-			file,
+			file[0],
 			filename,
 			props.selectedCollectionId
 		);
@@ -58,7 +62,7 @@ const AddImage = (props) => {
 					className={classes.fileInput}
 					type="file"
 					ref={fileRef}
-					onChange={(e) => setFile(e.target.files[0])}
+					onChange={(e) => setFile(e.target.files)}
 				/>
 				<button
 					className={className}
@@ -70,9 +74,11 @@ const AddImage = (props) => {
 			</span>
 			<div className={classes.messages}>
 				<div className={classes.error}>{error}</div>
-				<div className={classes.processingFileUpload}>
-					{categoriesContext.fileUploadStage}
-				</div>
+				{!error && (
+					<div className={classes.processingFileUpload}>
+						{categoriesContext.fileUploadStage}
+					</div>
+				)}
 			</div>
 		</form>
 	);

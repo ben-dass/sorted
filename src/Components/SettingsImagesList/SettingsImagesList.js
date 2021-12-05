@@ -28,7 +28,7 @@ const SettingsImagesList = (props) => {
 		return <div className={classes.userInfoMessage}>Loading images...</div>;
 	}
 
-	if (images === {}) {
+	if (typeof images === 'undefined') {
 		return (
 			<div className={classes.userInfoMessage}>
 				No images in this collection...
