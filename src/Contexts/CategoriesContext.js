@@ -64,12 +64,13 @@ export const CategoriesProvider = ({ children }) => {
 	};
 
 	/**
-	 * deleteCategory - Delete category to database.
+	 * setNewCategoryName - Edit a category name in the database.
 	 *
 	 * @param {String} categoryId - Category Id.
+	 * @param {String} newCategoryName - New category name.
 	 */
 	const setNewCategoryName = async (categoryId, newCategoryName) => {
-		console.log("Setting new category name...");
+		console.log("Setting new category name... ");
 
 		const updateCategoryNameRef = doc(db, "Categories", categoryId);
 		await updateDoc(updateCategoryNameRef, {

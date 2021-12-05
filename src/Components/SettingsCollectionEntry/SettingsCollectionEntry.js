@@ -69,7 +69,7 @@ const SettingsCollectionEntry = (props) => {
 							<div
 								className={classes.rowToolDelete}
 								onClick={() =>
-									handleDeleteCategory(category.id)
+									handleDeleteCategory(category.collectionId)
 								}
 							>
 								<AiFillDelete className={classes.icon} />
@@ -82,7 +82,7 @@ const SettingsCollectionEntry = (props) => {
 						<>
 							<div
 								className={classes.rowToolSave}
-								onClick={() => handleSaveEdit(category.id)}
+								onClick={() => handleSaveEdit(category.collectionId)}
 							>
 								<AiFillSave className={classes.icon} />
 								&nbsp;Save
