@@ -49,7 +49,7 @@ const SettingsCollectionEntry = (props) => {
 					ref={currentInputEdit}
 					type="text"
 					className={classes.input}
-					defaultValue={category.name}
+					defaultValue={category.collectionName}
 					onChange={(e) => setTempCategoryName(e.target.value)}
 				/>
 			)}

@@ -20,6 +20,7 @@ export const useCategories = () => {
 
 export const CategoriesProvider = ({ children }) => {
 	const [categories, setCategories] = useState([]);
+	const [fileUploadStage, setFileUploadStage] = useState("");
 
 	/**
 	 * Get all categories data off Firebase.
@@ -121,10 +122,12 @@ export const CategoriesProvider = ({ children }) => {
 	const addImage = async (file, fileName, categoryId) => {
 		const storage = getStorage();
 		const storageRef = ref(storage, fileName);
+		setFileUploadStage("Uploading image...");
 
 		// Upload file to Firebase Storage
-		await uploadBytes(storageRef, file);
-		console.log("Image uploaded to Storage");
+		await uploadBytes(storageRef, file).then(() => {
+			console.log("Image uploaded to Storage");
+		});
 
 		// Update category document in Firestore
 		const dbRef = doc(db, "Categories", categoryId);
@@ -136,6 +139,8 @@ export const CategoriesProvider = ({ children }) => {
 				url: fileURL,
 			}),
 		});
+
+		setFileUploadStage("Image has been uploaded!");
 	};
 
 	useEffect(() => {
@@ -150,6 +155,7 @@ export const CategoriesProvider = ({ children }) => {
 		setNewCategoryName,
 		getImagesFromCollection,
 		addImage,
+		fileUploadStage,
 	};
 
 	return (

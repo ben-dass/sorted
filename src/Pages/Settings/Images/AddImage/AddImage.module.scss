@@ -38,6 +38,19 @@
 		height: 100%;
 		font-family: $font_zen;
 	}
+
+	.messages {
+		font-weight: bold;
+		margin-top: 1rem;
+		
+		.error {
+			color: $red;
+		}
+
+		.processingFileUpload {
+			color: $green;
+		}
+	}
 }
 
 .submit {
@@ -60,4 +73,21 @@
 		color: white;
 		cursor: pointer;
 	}
+}
+
+.submitDisabled {
+	display: flex;
+	width: 7rem;
+	justify-content: center;
+	align-items: center;
+
+	border: none;
+	font-size: 0.85rem;
+	color: white;
+	background-color:$gray;
+	outline: 1px solid $gray;
+
+	border-radius: 5px;
+	transition: 400ms ease-in-out;
+
 }

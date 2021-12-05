@@ -1,11 +1,19 @@
 .contentContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 2rem;
+	flex-wrap: wrap;
+	margin-bottom: 2rem;
 }
 
 .icon {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
+}
+
+.userInfoMessage {
+	display: flex;
+	justify-content: center;
+	margin-top: 1.5rem;
+	opacity: 0.5;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useCategories } from "../../Contexts/CategoriesContext";
 
 import { saveAs } from "file-saver";
@@ -13,21 +13,17 @@ import { AiOutlineCloudDownload } from "react-icons/ai";
 import classes from "./Content.module.scss";
 
 const Content = (props) => {
-	const currentCollection = props.category;
-	const [images, setImages] = useState([]);
-
 	const categoriesContext = useCategories();
+	const collectionName = props.collectionName;
+
+	const [isLoading, setIsLoading] = useState(true);
+	const [images, setImages] = useState({});
 
 	const getImages = async () => {
-		setImages([]);
-		const categoriesPromise =
-			await categoriesContext.getImagesFromCollection(currentCollection);
-		const imagesObject = await categoriesPromise;
-		if (imagesObject != null) {
-			setImages(imagesObject);
-			return;
-		}
-		return;
+		setImages(
+			await categoriesContext.getImagesFromCollection(collectionName)
+		);
+		setIsLoading(false);
 	};
 
 	const downloadImage = (url, fileName) => {
@@ -38,6 +34,18 @@ const Content = (props) => {
 		getImages();
 		// eslint-disable-next-line
 	}, []);
+
+	if (isLoading) {
+		return <div className={classes.userInfoMessage}>Loading images...</div>;
+	}
+
+	if (typeof images === 'undefined') {
+		return (
+			<div className={classes.userInfoMessage}>
+				There are no images in this collection currently.
+			</div>
+		);
+	}
 
 	return (
 		<div className={classes.contentContainer}>

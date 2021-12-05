@@ -21,7 +21,7 @@ function App() {
 			<Switch>
 				<Route path="/" exact>
 					<div className={classes.contentBody}>
-						<TitleBar category="Welcome" />
+						<TitleBar category="Welcome to Sorted" />
 						<div className={classes.content}>
 							<Welcome />
 						</div>
@@ -72,7 +72,7 @@ function App() {
 								/>
 								<Content
 									{...props}
-									category={category.collectionName}
+									collectionName={category.collectionName}
 								/>
 							</div>
 						)}

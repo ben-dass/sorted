@@ -12,17 +12,17 @@ const Images = () => {
 
 	const [selectedCollectionName, setSelectedCollectionName] = useState(null);
 	const [selectedCollectionId, setSelectedCollectionId] = useState("");
+	const [trigger, setTrigger] = useState(false);
 
-	const handleClickedCategory = (e) => {
+	const handleClickedCategory = async (e) => {
 		setSelectedCollectionName(e.target.textContent);
 		setSelectedCollectionId(
 			categories.find(
 				(element) => element.collectionName === e.target.textContent
 			).collectionId
 		);
+		await categoriesContext.getImagesFromCollection(e.target.textContent);
 	};
-
-
 
 	return (
 		<div>
@@ -61,7 +61,8 @@ const Images = () => {
 							<>
 								{/* List of images */}
 								<SettingsImagesList
-									collection={selectedCollectionName}
+									collectionName={selectedCollectionName}
+									trigger={trigger}
 								/>
 
 								{/* Add an image */}
@@ -69,7 +70,14 @@ const Images = () => {
 									Add an image
 								</div>
 
-								<AddImage selectedCollectionId={selectedCollectionId} />
+								<AddImage
+									selectedCollectionId={selectedCollectionId}
+									selectedCollectionName={
+										selectedCollectionName
+									}
+									setTrigger={setTrigger}
+									trigger={trigger}
+								/>
 							</>
 						)}
 					</div>
